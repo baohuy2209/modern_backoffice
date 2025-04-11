@@ -1,11 +1,6 @@
-import { useState } from "react";
-
+import { renderRoute, routes } from "./routes/routes";
 function App() {
-  return (
-    <>
-      <div className="font-semibold">Hello</div>
-    </>
-  );
+  return <div>{renderRoute(routes)}</div>;
 }
 
 export default App;

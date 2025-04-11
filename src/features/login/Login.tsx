@@ -1,7 +1,11 @@
-import * as React from "react";
+import LoginLeftSide from "../../components/login_left_side/LoginLeftSide";
+import LoginRightSide from "../../components/login_right_side/LoginRightSide";
 
-export interface IAppProps {}
-
-export default function App(props: IAppProps) {
-  return <div>Login</div>;
+export default function App() {
+  return (
+    <div className="flex justify-between h-screen">
+      <LoginLeftSide />
+      <LoginRightSide />
+    </div>
+  );
 }

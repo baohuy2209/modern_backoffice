@@ -1,7 +1,9 @@
-import * as React from "react";
+import StudentsTable from "../../components/students_table/StudentTable";
 
-export interface IAppProps {}
-
-export default function App(props: IAppProps) {
-  return <div>Dashboard</div>;
+export default function Dashboard() {
+  return (
+    <div className="bg-[#F5FAFF] py-32 px-12 min-h-full">
+      <StudentsTable />
+    </div>
+  );
 }

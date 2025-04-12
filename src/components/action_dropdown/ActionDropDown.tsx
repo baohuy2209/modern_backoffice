@@ -7,7 +7,7 @@ import useToggleDrawer from "../../hooks/useToggleDrawer";
 import EditDrawer from "../drawer/EditDrawer";
 import { useMurration, useQueryClient } from "@tanstack/react-query";
 import deleteStudent from "../../api/deleteStudent";
-import { Dropdown } from "antd";
+import { Dropdown, Modal } from "antd";
 interface IActionDropDownProps {
   data: StudentDataType;
 }
@@ -64,11 +64,28 @@ const ActionDropDown: React.FunctionComponent<IActionDropDownProps> = ({
   ];
   return (
     <>
-      <Dropdown>
-        <div>
-          <img src={actionIcon} />
+      <Dropdown menu={{ items }} trigger={["click"]} placement="bottomRight">
+        <div className="flex justify-center">
+          <img src={actionIcon} alt="Action" className="cursor-pointer" />
         </div>
       </Dropdown>
+      <Modal
+        title="Delete User!"
+        open={isModalOpen}
+        onCancel={handleModalClose}
+        onOk={handleDelete}
+        className=""
+        okButtonProps={{
+          className: "w-5/12 h-16 !bg-blue-700 hover:opacity-80",
+        }}
+        cancelButtonProps={{ className: "w-5/12 h-16" }}
+        okText="Delete"
+        cancelText="Cancel"
+      >
+        <div className="bg-white">
+          <img src={deleteIcon} alt="img icon" className="w-20" />
+        </div>
+      </Modal>
     </>
   );
 };

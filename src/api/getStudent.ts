@@ -24,7 +24,7 @@ const getStudents = async (
   }
 
   if (filters.region) {
-    query = query.er("region", filters.region);
+    query = query.eq("region", filters.region);
   }
 
   if (filters.course && filters.course?.length > 0) {

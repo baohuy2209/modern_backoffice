@@ -185,7 +185,7 @@ const StudentsTable = () => {
                 rowKey="id"
               />
             </div>
-            <div>
+            <div className="list_view_pagination">
               <Pagination
                 total={totalStudents}
                 current={currentPage}

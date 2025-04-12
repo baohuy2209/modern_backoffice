@@ -38,7 +38,6 @@ export interface IFilters {
 export interface ITableHeaderProps {
   columnsInfo: TColumns;
   handleChangeColumns: (cols: TColumns) => void;
-  handleFilter: (search: string) => void;
   handleFilterSubmit: (filters: IFilters) => void;
   handleSearch: (search: string) => void;
 }

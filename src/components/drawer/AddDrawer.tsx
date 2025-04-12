@@ -241,11 +241,60 @@ const AddDrawer: React.FunctionComponent<IAddDrawerProps> = () => {
             <label htmlFor="phone_number" className="text-gray-700">
               Phone Number (<span className="text-red-500">*</span>)
             </label>
-            <Controller name="phone_number" control={control} rules={{required: "Phone number is required", pattern: {value: /^\d{8}$/,message: "Phone number must be 8 digits" }}} render={({field}) => (
-              <Input />
-            )}/>
+            <Controller
+              name="phone_number"
+              control={control}
+              rules={{
+                required: "Phone number is required",
+                pattern: {
+                  value: /^\d{8}$/,
+                  message: "Phone number must be 8 digits",
+                },
+              }}
+              render={({ field }) => (
+                <Input
+                  {...field}
+                  prefix={<BiPhone />}
+                  placeholder="50 222 800"
+                />
+              )}
+            />
+            {errors.phone_number && (
+              <p className="text-red-500 text-[1.2rem]">
+                {errors.phone_number.message as string}
+              </p>
+            )}
+          </div>
+          <div className="px-6 py-4 flex flex-col gap-4">
+            <label htmlFor="invite_code" className="text-gray-700">
+              Invite Code (<span className="text-red-500">*</span>)
+            </label>
+            <Controller
+              name="invite_code"
+              control={control}
+              rules={{ required: "Invite code is required" }}
+              render={({ field }) => (
+                <Input
+                  {...field}
+                  prefix={<BiUserPlus />}
+                  placeholder="Enter invite code"
+                />
+              )}
+            />
+            {errors.invite_code && (
+              <p className="text-red-500 text-[1.2rem]">
+                {errors.invite_code.message as string}
+              </p>
+            )}
           </div>
         </div>
+        <Button
+          type="primary"
+          className="mt-4 absolute top-4 py-8 text-[1.6rem] w-10/12 left-1/2 -translate-x-1/2 !bg-blue-700 transition-all duration-200 hover:opacity-80"
+          htmlType="submit"
+        >
+          Add
+        </Button>
       </form>
     </Drawer>
   );

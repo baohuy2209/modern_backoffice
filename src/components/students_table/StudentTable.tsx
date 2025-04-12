@@ -84,12 +84,12 @@ const columns: TColumns = [
     render: (text) => {
       return text?.length > 1 ? (
         <div className="flex gap-3">
-          <p>{text?.[0]}</p>
-          <Tooltip title={text?.slice(1).join(", ")} color="#448FED">
+          <p>{text}</p>
+          {/* <Tooltip title={text?.slice(1).join(", ")} color="#448FED">
             <p className="px-4 py-1 bg-blue-200 text-blue-600 rounded-[1.4rem]">
               +{text?.slice(1)?.length}
             </p>
-          </Tooltip>
+          </Tooltip> */}
         </div>
       ) : (
         <p>{text?.[0] || "__"}</p>

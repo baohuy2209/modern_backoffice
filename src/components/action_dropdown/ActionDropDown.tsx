@@ -5,7 +5,7 @@ import editIcon from "../../assets/icons/edit.svg";
 import deleteIcon from "../../assets/icons/trash.svg";
 import useToggleDrawer from "../../hooks/useToggleDrawer";
 import EditDrawer from "../drawer/EditDrawer";
-import { useMurration, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import deleteStudent from "../../api/deleteStudent";
 import { Dropdown, Modal } from "antd";
 interface IActionDropDownProps {

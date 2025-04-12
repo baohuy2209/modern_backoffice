@@ -1,4 +1,4 @@
-import { supabase } from "../../supabaseClient";
+import supabase from "../../supabaseClient";
 const getPublicUrl = async (filePath: string) => {
   const { data } = supabase.storage.from("avatar").getPublicUrl(filePath);
   if (data?.publicUrl) {
@@ -7,3 +7,4 @@ const getPublicUrl = async (filePath: string) => {
     return null;
   }
 };
+export default getPublicUrl;

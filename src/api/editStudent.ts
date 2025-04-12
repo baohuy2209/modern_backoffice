@@ -1,4 +1,4 @@
-import { supabase } from "../../supabaseClient";
+import supabase from "../../supabaseClient";
 import { StudentDataType } from "../types";
 
 const editStudent = async (updatedata: Partial<StudentDataType>) => {

@@ -1,4 +1,4 @@
-import { supabase } from "../../supabaseClient";
+import supabase from "../../supabaseClient";
 const deleteStudent = async (studentId: string) => {
   const { data, error } = await supabase
     .from("students")

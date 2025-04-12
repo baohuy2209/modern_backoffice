@@ -1,4 +1,4 @@
-import { supabase } from "../../supabaseClient";
+import supabase from "../../supabaseClient";
 import { IFilters } from "../types/index";
 const getStudents = async (
   currentPage: number,
@@ -22,5 +22,26 @@ const getStudents = async (
   } else if (filters.phoneMax) {
     query = query.lte("phone_number", filters.phoneMax);
   }
+
+  if (filters.region) {
+    query = query.er("region", filters.region);
+  }
+
+  if (filters.course && filters.course?.length > 0) {
+    query = query.contains("course_enrolled", filters.course);
+  }
+
+  if (filters.createdAt && filters.createdAt?.length === 2) {
+    const [startDate, endDate] = filters.createdAt;
+    query = query.gte("created_at", startDate).lte("created_at", endDate);
+  }
+  const offset = (currentPage - 1) * pageSize;
+
+  query = query.range(offset, offset + pageSize - 1);
+  const { data, error, count } = await query;
+  if (error) {
+    return;
+  }
+  return { data, count };
 };
 export default getStudents;

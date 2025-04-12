@@ -24,3 +24,4 @@ const TUNISIA_REGIONS = [
   "Tunis",
   "Zaghouan",
 ];
+export default TUNISIA_REGIONS;
